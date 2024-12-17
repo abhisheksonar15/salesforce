@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Product List">
+        <template for:each={products} for:item="product">
+            <c-product-card-child
+            key = {product.Id}
+            product = {product}
+            onproductselected = {handleSelectedProduct}>
+        </c-product-card-child>
+        </template>
+        <template if:true={selectedProduct}>
+            <p><strong> Selected Product: {selectedProduct.Name}</strong></p>
+            <p><strong> Price: {selectedProduct.Price}</strong></p>
+            <p><strong> Category: {selectedProduct.Category}</strong></p>
+        </template>
+        <template if:false={selectedProduct}>
+            <p><strong> No Product Selected</strong></p>
+        </template>
+    </lightning-card>
+</template>
